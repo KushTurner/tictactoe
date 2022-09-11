@@ -9,8 +9,8 @@ score = {'X': 0,
 currentPlayer = 'X'
 winner = None
 gameRunning = True
-plr1= None
-plr2= None
+plr1 = None
+plr2 = None
 
 
 # creating board
@@ -113,9 +113,16 @@ def checkWin():
     global gameRunning
     global winner
     global score
+    global currentPlayer
+    global plr1
+    global plr2
     if checkDiagonal() or checkVertical() or checkHorizontal() is True:
+        if winner == 'X':
+            wnr = plr1
+        else:
+            wnr = plr2
         printBoard(gameTable)
-        print('The winner is {}'.format(winner))
+        print('The winner is {} ({})'.format(winner, wnr))
         score[winner] += 1
         showScore(score)
         playAgain(gameTable)
