@@ -9,6 +9,8 @@ score = {'X': 0,
 currentPlayer = 'X'
 winner = None
 gameRunning = True
+plr1= None
+plr2= None
 
 
 # creating board
@@ -66,6 +68,17 @@ def checkDiagonal():
 # game functionality
 
 
+def createPlayer():
+    global plr1
+    global plr2
+    plr = str(input('What is your name? '))
+    if plr1 is None:
+        plr1 = plr
+    else:
+        plr2 = plr
+
+
+
 def askInput():
     global gameRunning
     inp = int(input('Pick a spot: '))
@@ -80,10 +93,10 @@ def switchPlayer():
     global currentPlayer
     if currentPlayer == 'X':
         currentPlayer = 'O'
-        print(currentPlayer)
+        print(plr2 + ' ' + currentPlayer)
     else:
         currentPlayer = 'X'
-        print(currentPlayer)
+        print(plr1 + ' ' + currentPlayer)
 
 
 def playAgain(table):
@@ -118,11 +131,14 @@ def checkTie():
 
 
 def showScore(scoreDict):
-    print('X: ' + str(scoreDict['X']))
-    print('O: ' + str(scoreDict['O']))
+    print(plr1 + ' X: ' + str(scoreDict['X']))
+    print(plr2 + ' O: ' + str(scoreDict['O']))
 
 
 # game running
+
+createPlayer()
+createPlayer()
 
 while gameRunning:
     printBoard(gameTable)
@@ -130,5 +146,3 @@ while gameRunning:
     checkWin()
     checkTie()
     switchPlayer()
-
-# Test
