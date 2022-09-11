@@ -114,8 +114,6 @@ def checkWin():
     global winner
     global score
     global currentPlayer
-    global plr1
-    global plr2
     if checkDiagonal() or checkVertical() or checkHorizontal() is True:
         if winner == 'X':
             wnr = plr1
