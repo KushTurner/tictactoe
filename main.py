@@ -111,9 +111,7 @@ def playAgain(table):
 
 def checkWin():
     global gameRunning
-    global winner
     global score
-    global currentPlayer
     if checkDiagonal() or checkVertical() or checkHorizontal() is True:
         if winner == 'X':
             wnr = plr1
